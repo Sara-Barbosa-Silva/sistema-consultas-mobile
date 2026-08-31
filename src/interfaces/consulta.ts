@@ -6,7 +6,7 @@ export interface Consulta {
   id: number;
   medico: Medico;
   paciente: Paciente;
-  data: Date;
+  dataHora: string;
   valor: number;
   status: StatusConsulta;
   observacoes?: string;
