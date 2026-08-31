@@ -76,3 +76,4 @@ export async function listarConsultasPorPaciente(pacienteId: number): Promise<Co
     const response = await api.get<Consulta[]>(`/consultas/paciente/${pacienteId}`);
     return response.data;
 }
+
