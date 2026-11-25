@@ -30,6 +30,15 @@ export const styles = StyleSheet.create({
     },
     label: { fontSize: 14, fontWeight: "600", color: "#555", marginBottom: 4 },
     hint: { fontSize: 12, color: "#999", marginBottom: 12 },
+    // Campo tocavel que abre o seletor de data/hora no Android
+    seletor: {
+        borderWidth: 1,
+        borderColor: "#ddd",
+        borderRadius: 8,
+        padding: 12,
+        marginBottom: 12,
+    },
+    seletorTexto: { fontSize: 15, color: "#333" },
     dataSelecionada: {
         fontSize: 14,
         color: "#79059C",

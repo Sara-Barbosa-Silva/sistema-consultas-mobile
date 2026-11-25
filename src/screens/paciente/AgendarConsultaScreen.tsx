@@ -51,19 +51,32 @@ export default function AgendarConsultaScreen({ navigation, route }: Props) {
     const [salvando, setSalvando] = useState(false);
     const [erro, setErro] = useState("");
 
-    function onChangeData(_event: DateTimePickerEvent, date?: Date) {
-        if (date) {
-            const nova = new Date(dataHora);
-            nova.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
-            setDataHora(nova);
+    // No Android o DateTimePicker abre como janela (dialog) assim que e renderizado.
+    // Por isso ele so e renderizado quando o usuario toca no campo, e fecha
+    // logo no onChange - senao a janela reabre a cada re-render da tela.
+    const isAndroid = Platform.OS === "android";
+    const [mostrarData, setMostrarData] = useState(false);
+    const [mostrarHora, setMostrarHora] = useState(false);
+
+    function onChangeData(event: DateTimePickerEvent, date?: Date) {
+        setMostrarData(false);
+        if (event.type === "set" && date) {
+            setDataHora((atual) => {
+                const nova = new Date(atual);
+                nova.setFullYear(date.getFullYear(), date.getMonth(), date.getDate());
+                return nova;
+            });
         }
     }
 
-    function onChangeHora(_event: DateTimePickerEvent, date?: Date) {
-        if (date) {
-            const nova = new Date(dataHora);
-            nova.setHours(date.getHours(), date.getMinutes(), 0, 0);
-            setDataHora(nova);
+    function onChangeHora(event: DateTimePickerEvent, date?: Date) {
+        setMostrarHora(false);
+        if (event.type === "set" && date) {
+            setDataHora((atual) => {
+                const nova = new Date(atual);
+                nova.setHours(date.getHours(), date.getMinutes(), 0, 0);
+                return nova;
+            });
         }
     }
 
@@ -107,22 +120,49 @@ export default function AgendarConsultaScreen({ navigation, route }: Props) {
 
                     {/* Seletor de data */}
                     <Text style={styles.label}>Data da Consulta *</Text>
-                    <DateTimePicker
-                        value={dataHora}
-                        mode="date"
-                        display={Platform.OS === "ios" ? "inline" : "spinner"}
-                        minimumDate={new Date()}
-                        onChange={onChangeData}
-                    />
+                    {isAndroid && (
+                        <TouchableOpacity
+                            style={styles.seletor}
+                            onPress={() => setMostrarData(true)}
+                        >
+                            <Text style={styles.seletorTexto}>
+                                {dataHora.toLocaleDateString("pt-BR")}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
+                    {(!isAndroid || mostrarData) && (
+                        <DateTimePicker
+                            value={dataHora}
+                            mode="date"
+                            display={Platform.OS === "ios" ? "inline" : "spinner"}
+                            minimumDate={new Date()}
+                            onChange={onChangeData}
+                        />
+                    )}
 
                     {/* Seletor de hora */}
                     <Text style={[styles.label, { marginTop: 8 }]}>Hora da Consulta *</Text>
-                    <DateTimePicker
-                        value={dataHora}
-                        mode="time"
-                        display="spinner"
-                        onChange={onChangeHora}
-                    />
+                    {isAndroid && (
+                        <TouchableOpacity
+                            style={styles.seletor}
+                            onPress={() => setMostrarHora(true)}
+                        >
+                            <Text style={styles.seletorTexto}>
+                                {dataHora.toLocaleTimeString("pt-BR", {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                })}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
+                    {(!isAndroid || mostrarHora) && (
+                        <DateTimePicker
+                            value={dataHora}
+                            mode="time"
+                            display="spinner"
+                            onChange={onChangeHora}
+                        />
+                    )}
 
                     <Text style={styles.dataSelecionada}>
                         Agendado para: {formatarExibicao(dataHora)}
