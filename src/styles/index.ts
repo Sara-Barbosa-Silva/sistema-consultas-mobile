@@ -11,7 +11,7 @@ export { styles as loginPacienteStyles } from "./loginPaciente.styles";
 export { styles as cadastroMedicoStyles } from "./cadastroMedico.styles";
 export { styles as cadastroPacienteStyles } from "./cadastroPaciente.styles";
 export { styles as perfilMedicoStyles } from "./perfilMedico.styles";
-export { styles as consultaMedicoStyles } from "./consultaMedico.styles";
+export { styles as consultasMedicoStyles } from "./consultasMedico.styles";
 export { styles as minhasConsultasStyles } from "./minhasConsultas.styles";
 export { styles as agendarConsultasStyles } from "./agendarConsulta.styles";
 export { styles as escolhaMedicoStyles } from "./escolhaMedico.styles";

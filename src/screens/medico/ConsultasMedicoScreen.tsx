@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import {
     View,
     Text,
-    StyleSheet,
     FlatList,
     TouchableOpacity,
     ActivityIndicator,
@@ -16,7 +15,7 @@ import {
     cancelarConsulta,
 } from "../../services/consultaService";
 import { Consulta } from "../../interfaces/consulta";
-import { styles } from "../../styles/consultaMedico.styles"; // ← sobe dois nível (de screens/ para src/)
+import { styles } from "../../styles/consultasMedico.styles"; // ← sobe dois nível (de screens/ para src/)
 
 type Props = {
     navigation: NativeStackNavigationProp<RootStackParamList, "ConsultasMedico">;
