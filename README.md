@@ -33,6 +33,18 @@ Build gerado com EAS Build (perfil `preview`).
 
 > Este QR é o da página do build em expo.dev - não o do `npx expo start`.
 
+### Vídeo de demonstração
+
+[▶️ Assistir ao vídeo de demonstração](./docs/video-demonstracao.mp4)
+
+Gravado no celular Android com o APK instalado e o backend no Render. O vídeo mostra:
+
+- instalação do APK pelo QR Code do expo.dev
+- cadastro de paciente e login por CPF
+- agendamento de consulta (especialidade → médico → data e hora)
+- consulta listada em "Minhas Consultas"
+- login do médico por CRM e confirmação da consulta
+
 ### Credenciais de teste
 
 | Perfil | Campo | Valor |
