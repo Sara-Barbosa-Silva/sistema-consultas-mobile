@@ -35,7 +35,9 @@ Build gerado com EAS Build (perfil `preview`).
 
 ### Vídeo de demonstração
 
-[▶️ Assistir ao vídeo de demonstração](./docs/video-demonstracao.mp4)
+https://github.com/user-attachments/assets/5aef9d4c-f297-4217-a7f5-9466e5fd4133
+
+Se o player não carregar: [baixar o vídeo de demonstração](./docs/video-demonstracao.mp4)
 
 Gravado no celular Android com o APK instalado e o backend no Render. O vídeo mostra:
 
