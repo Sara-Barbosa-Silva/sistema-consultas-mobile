@@ -21,7 +21,7 @@ Hospedado no Render: https://backend-consultas-sara.onrender.com
 Build gerado com EAS Build (perfil `preview`).
 
 - EAS projectId: `4473acbb-7de4-4153-acdc-517394b87f51`
-- Build: https://expo.dev/accounts/sara.barosa_23/projects/sistema-consultas-mobile/builds/fdec7efc-1983-41be-a641-46601a7bb357
+- Build: https://expo.dev/accounts/sara.barosa_23/projects/sistema-consultas-mobile/builds/8e3e7a07-b466-4359-af3e-5a6cda114ec9
 
 1. Escaneie o QR Code abaixo **ou** baixe pelo link do Expo.
 2. Permita instalação de fontes desconhecidas apenas para o instalador.
